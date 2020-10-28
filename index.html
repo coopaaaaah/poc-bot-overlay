@@ -1,0 +1,25 @@
+<html>
+    <title>overlay</title>
+    <style>
+        img {
+            opacity: 30%;
+        }
+        .raise-opacity {
+            opacity: 100%;
+        }
+    </style>
+    <body>
+        <img id="DittoDowgiii-image" src="img/mad-jiggy.png" />
+        <img id="david-image" src="img/finger.png" />
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const socket = io();
+            socket.on('user talking', function(user){
+                console.log(user);
+                console.log('user talking');
+                document.getElementById(`${user.user}-image`).className = user.isSpeaking ? "raise-opacity" : "";
+            })
+        </script>
+    </body>
+</html>
